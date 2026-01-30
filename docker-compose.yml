@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  code-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL}
+      OPENAI_MODEL: ${OPENAI_MODEL}
+    volumes:
+      - ./workspace:/app/workspace
+    command: >
+      --repo ${GITHUB_REPO:-https://github.com/user/repo}
+      --issue ${GITHUB_ISSUE:-1}
