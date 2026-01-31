@@ -49,7 +49,17 @@ export OPENAI_BASE_URL="https://api.groq.com/openai/v1"
 export OPENAI_MODEL="openai/gpt-oss-120b"
 ```
 
-### 3. Запускаем Code Agent
+### 3. Настройка Reviewer Agent в репозитории
+
+В репозитории проекта, где будут создаваться PR:
+
+1. скопировать scripts/reviewer.py
+2. добавить workflow .github/workflows/pr-reviewer.yml
+3. задать secrets: OPENAI_API_KEY, OPENAI_BASE_URL, OPENAI_MODEL
+
+Подробные шаги см. раздел «Установка Reviewer Agent в форке» ниже.
+
+### 4. Запускаем Code Agent
 
 **Через Docker:**
 ```bash
